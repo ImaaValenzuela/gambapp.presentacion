@@ -45,7 +45,7 @@
   }
   .slide{
     position:relative;
-    min-height:100vh;
+    height:100vh;
     width:100%;
     scroll-snap-align:start;
     display:flex;
@@ -387,6 +387,42 @@
     padding-left:1.2rem;
   }
 
+  /* ---------- animations ---------- */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  .fade-in {
+    opacity: 0;
+    transition: opacity 0.8s ease-in;
+  }
+  .pop-in {
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity 0.8s cubic-bezier(0.34, 1.56, 0.64, 1), transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .slide.in-view .fade-up {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .slide.in-view .fade-in {
+    opacity: 1;
+  }
+  .slide.in-view .pop-in {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  /* Delays */
+  .slide.in-view .delay-1 { transition-delay: 0.1s; }
+  .slide.in-view .delay-2 { transition-delay: 0.2s; }
+  .slide.in-view .delay-3 { transition-delay: 0.3s; }
+  .slide.in-view .delay-4 { transition-delay: 0.4s; }
+  .slide.in-view .delay-5 { transition-delay: 0.5s; }
+  .slide.in-view .delay-6 { transition-delay: 0.6s; }
+
   @media (max-width:900px){
     .split,.uc-grid,.safety-split{grid-template-columns:1fr;}
     .pillars{grid-template-columns:1fr;}
@@ -421,26 +457,26 @@
   <!-- SLIDE 1 — PORTADA -->
   <section class="slide" id="s1">
     <div class="noise-grid"></div>
-    <div class="logo-mark">
+    <div class="logo-mark pop-in delay-1">
       <svg width="34" height="34" viewBox="0 0 24 24" fill="none">
         <path d="M4 14c2-6 5-9 8-9s6 3 8 9" stroke="#F8FAFC" stroke-width="2" stroke-linecap="round"/>
         <circle cx="12" cy="17" r="2.4" fill="#F8FAFC"/>
       </svg>
     </div>
-    <h1>GambApp</h1>
-    <p class="subtitle">Rehabilitación física inteligente y supervisada, sin salir de casa.</p>
-    <div class="footer-meta">
+    <h1 class="fade-up delay-2">GambApp</h1>
+    <p class="subtitle fade-up delay-3">Rehabilitación física inteligente y supervisada, sin salir de casa.</p>
+    <div class="footer-meta fade-in delay-4">
       <span>EQUIPO GAMBAPP</span>
       <span id="todayDate"></span>
     </div>
-    <div class="scroll-cue">DESLIZÁ ↓</div>
+    <div class="scroll-cue fade-in delay-5">DESLIZÁ ↓</div>
   </section>
 
   <!-- SLIDE 2 — PROBLEMÁTICA -->
   <section class="slide" id="s2">
-    <div class="eyebrow"><span class="deg">045°</span> EL PROBLEMA</div>
+    <div class="eyebrow fade-up delay-1"><span class="deg">045°</span> EL PROBLEMA</div>
     <div class="split">
-      <div>
+      <div class="fade-up delay-2">
         <h2>El desafío de la recuperación solitaria</h2>
         <ul class="point-list">
           <li>
@@ -472,7 +508,7 @@
           </li>
         </ul>
       </div>
-      <div class="card stat-card">
+      <div class="card stat-card fade-up delay-3">
         <div class="big">70%</div>
         <div class="cap">de los pacientes abandonan la terapia en casa debido a la falta de supervisión.</div>
       </div>
@@ -482,17 +518,17 @@
   <!-- SLIDE 3 — PROPÓSITO -->
   <section class="slide" id="s3">
     <div class="noise-grid"></div>
-    <div class="eyebrow" style="justify-content:center;width:100%;"><span class="deg">090°</span> NUESTRO OBJETIVO</div>
-    <div class="glass">
+    <div class="eyebrow fade-up delay-1" style="justify-content:center;width:100%;"><span class="deg">090°</span> NUESTRO OBJETIVO</div>
+    <div class="glass fade-up delay-2">
       <p class="quote">"Democratizar y asegurar la rehabilitación física integrando <em>visión artificial</em> y sensores móviles para acompañar al paciente en su recuperación diaria, garantizando <em>seguridad y precisión</em> sin salir de casa."</p>
     </div>
   </section>
 
   <!-- SLIDE 4 — CASO DE USO 1 -->
   <section class="slide" id="s4">
-    <div class="eyebrow"><span class="deg">120°</span> CASO DE USO · 01</div>
+    <div class="eyebrow fade-up delay-1"><span class="deg">120°</span> CASO DE USO · 01</div>
     <div class="uc-grid">
-      <div class="phone">
+      <div class="phone fade-up delay-2">
         <div class="notch"></div>
         <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;">
           <div style="position:relative;">
@@ -508,7 +544,7 @@
           <p class="mono" style="font-size:.65rem;color:var(--emerald);margin-top:.8rem;">ÓPTIMA</p>
         </div>
       </div>
-      <div>
+      <div class="fade-up delay-3">
         <h2>Diagnóstico del entorno</h2>
         <p class="subtitle">Evaluación activa con sensores del dispositivo.</p>
         <ul class="detail-list">
@@ -527,9 +563,9 @@
 
   <!-- SLIDE 5 — CASO DE USO 2 -->
   <section class="slide" id="s5">
-    <div class="eyebrow"><span class="deg">150°</span> CASO DE USO · 02</div>
+    <div class="eyebrow fade-up delay-1"><span class="deg">150°</span> CASO DE USO · 02</div>
     <div class="uc-grid">
-      <div class="phone">
+      <div class="phone fade-up delay-2">
         <div class="notch"></div>
         <svg class="skeleton-svg" viewBox="0 0 270 540">
           <line x1="135" y1="120" x2="135" y2="220"/>
@@ -549,7 +585,7 @@
         <div class="angle-tag" style="top:52%;left:60%;">ROM 128°</div>
         <div class="angle-tag" style="top:70%;left:12%;">IDEAL</div>
       </div>
-      <div>
+      <div class="fade-up delay-3">
         <h2>Análisis biomecánico en tiempo real</h2>
         <p class="subtitle">Supervisión asistida por inteligencia artificial local.</p>
         <ul class="detail-list">
@@ -568,9 +604,9 @@
 
   <!-- SLIDE 6 — CASO DE USO 3 -->
   <section class="slide" id="s6">
-    <div class="eyebrow"><span class="deg">180°</span> CASO DE USO · 03</div>
+    <div class="eyebrow fade-up delay-1"><span class="deg">180°</span> CASO DE USO · 03</div>
     <div class="uc-grid">
-      <div class="card" style="padding:2.4rem;text-align:center;">
+      <div class="card fade-up delay-2" style="padding:2.4rem;text-align:center;">
         <p class="mono" style="font-size:.68rem;color:var(--text-dim);letter-spacing:.08em;margin-bottom:1.4rem;">ANILLOS TERAPÉUTICOS</p>
         <div class="ring-row">
           <div class="ring r1">300°</div>
@@ -584,7 +620,7 @@
           <div class="trophy"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M8 21h8M12 17v4M6 4h12v3a6 6 0 01-12 0V4z" stroke="#F5A623" stroke-width="2"/></svg></div>
         </div>
       </div>
-      <div>
+      <div class="fade-up delay-3">
         <h2>Motivación y progreso diario</h2>
         <p class="subtitle">El podómetro como calentamiento de la terapia.</p>
         <ul class="detail-list">
@@ -603,16 +639,16 @@
 
   <!-- SLIDE 7 — CASO DE USO 4 -->
   <section class="slide" id="s7">
-    <div class="eyebrow"><span class="deg">210°</span> CASO DE USO · 04</div>
-    <h2>Seguridad y vinculación médica</h2>
-    <p class="subtitle">Protección ante emergencias y derivación asistida.</p>
+    <div class="eyebrow fade-up delay-1"><span class="deg">210°</span> CASO DE USO · 04</div>
+    <h2 class="fade-up delay-2">Seguridad y vinculación médica</h2>
+    <p class="subtitle fade-up delay-3">Protección ante emergencias y derivación asistida.</p>
     <div class="safety-split">
-      <div class="alert-box">
+      <div class="alert-box fade-up delay-4">
         <span class="tag">⚠ ALERTA DE CAÍDA</span>
         <p style="margin-top:.8rem;font-size:.95rem;">Monitoreo de caídas en plena sesión con alertas de confirmación automáticas.</p>
         <p style="margin-top:1rem;color:var(--text-dim);font-size:.85rem;">Sensor: Acelerómetro de seguridad</p>
       </div>
-      <div class="map-box">
+      <div class="map-box fade-up delay-5">
         <p class="mono" style="font-size:.65rem;color:var(--text-dim);letter-spacing:.08em;margin-bottom:.8rem;">CLÍNICAS CERCANAS</p>
         <div class="pin" style="top:40%;left:30%;"></div>
         <div class="pin" style="top:60%;left:65%;"></div>
@@ -624,9 +660,9 @@
 
   <!-- SLIDE 8 — CIERRE Y ARQUITECTURA -->
   <section class="slide" id="s8">
-    <div class="eyebrow"><span class="deg">240°</span> SUSTENTO TECNOLÓGICO</div>
-    <h2>Arquitectura</h2>
-    <div class="arch-flow">
+    <div class="eyebrow fade-up delay-1"><span class="deg">240°</span> SUSTENTO TECNOLÓGICO</div>
+    <h2 class="fade-up delay-2">Arquitectura</h2>
+    <div class="arch-flow fade-up delay-3">
       <div class="arch-node">Compose UI</div>
       <span class="arch-arrow">→</span>
       <div class="arch-node">ViewModels</div>
@@ -635,7 +671,7 @@
       <span class="arch-arrow">→</span>
       <div class="arch-node">Room / Sensores</div>
     </div>
-    <div class="pillars">
+    <div class="pillars fade-up delay-4">
       <div class="pillar">
         <b>Kotlin nativo</b>
         <p>UI declarativa con Jetpack Compose.</p>
@@ -649,7 +685,7 @@
         <p>Inyección de dependencias y pruebas unitarias.</p>
       </div>
     </div>
-    <p class="closing-line">Una arquitectura limpia para una recuperación segura.</p>
+    <p class="closing-line fade-up delay-5">Una arquitectura limpia para una recuperación segura.</p>
   </section>
 
 </div>
@@ -672,6 +708,9 @@
         const idx = slides.indexOf(entry.target);
         navButtons.forEach(b=>b.classList.remove('active'));
         navButtons[idx].classList.add('active');
+        entry.target.classList.add('in-view');
+      } else {
+        entry.target.classList.remove('in-view');
       }
     });
   }, {root:deck, threshold:0.55});
